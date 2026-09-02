@@ -76,8 +76,15 @@ function GuitarTable({
       <TableContainer
         component={Paper}
         variant="outlined"
+        sx={{
+          overflowX: "auto",
+        }}
       >
-        <Table>
+        <Table
+          sx={{
+            minWidth: 750,
+          }}
+        >
           <TableHead>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -144,6 +151,8 @@ function GuitarTable({
           justifyContent: "space-between",
           alignItems: "center",
           mt: 2,
+          gap: 2,
+          flexWrap: "wrap",
         }}
       >
         <Button
