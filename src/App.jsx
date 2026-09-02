@@ -257,11 +257,19 @@ function App() {
                   </Typography>
 
                   <Typography
-                    color="text.secondary"
-                    variant="body2"
-                  >
-                    Select a row to view complete guitar details.
-                  </Typography>
+                  color="text.secondary"
+                  variant="body2"
+                >
+                  Select a row to view complete guitar details.
+                </Typography>
+
+                <Typography
+                  color="text.secondary"
+                  variant="body2"
+                  sx={{ mt: 0.5 }}
+                >
+                  Showing {filteredGuitars.length} of {guitars.length} records
+                </Typography>
                 </Box>
 
                 <TextField
