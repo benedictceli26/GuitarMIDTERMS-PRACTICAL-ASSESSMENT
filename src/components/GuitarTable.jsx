@@ -45,7 +45,11 @@ const columns = [
   },
 ];
 
-function GuitarTable({ guitars, onSelectGuitar }) {
+function GuitarTable({
+  guitars,
+  selectedGuitar,
+  onSelectGuitar,
+}) {
   const table = useReactTable({
     data: guitars,
     columns,
@@ -69,7 +73,10 @@ function GuitarTable({ guitars, onSelectGuitar }) {
         Guitar Registry
       </Typography>
 
-      <TableContainer component={Paper} variant="outlined">
+      <TableContainer
+        component={Paper}
+        variant="outlined"
+      >
         <Table>
           <TableHead>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -77,7 +84,9 @@ function GuitarTable({ guitars, onSelectGuitar }) {
                 {headerGroup.headers.map((header) => (
                   <TableCell
                     key={header.id}
-                    sx={{ fontWeight: "bold" }}
+                    sx={{
+                      fontWeight: "bold",
+                    }}
                   >
                     {flexRender(
                       header.column.columnDef.header,
@@ -94,7 +103,12 @@ function GuitarTable({ guitars, onSelectGuitar }) {
               <TableRow
                 key={row.id}
                 hover
-                onClick={() => onSelectGuitar(row.original)}
+                selected={
+                  selectedGuitar?.id === row.original.id
+                }
+                onClick={() =>
+                  onSelectGuitar(row.original)
+                }
                 sx={{
                   cursor: "pointer",
                 }}
